@@ -1,0 +1,329 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Box sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* Add padding to the top of the body to prevent content from hiding behind the header */
+}
+
+/* Header styles */
+.floating-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px; /* Double the height */
+    background-color: #F4F4F4; /* Set background color to #F4F4F4 */
+    color: black;
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: center;
+    z-index: 1000; /* Ensure the header is on top of other content */
+    border-bottom: 1px solid #ccc; /* Border bottom for the header */
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between; /* Space between logo and text */
+    align-items: center;
+}
+
+.logo {
+    height: 40px; /* Adjust the height of the logo */
+}
+
+.header-text {
+    --tw-text-opacity: 1;
+    color: rgba(100,116,139,var(--tw-text-opacity));
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+
+/* Main content container */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Article styles */
+.article {
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.date {
+    color: #bbae9d;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 20px;
+    font-size: 15px; /* Adjusted font size */
+    line-height: 1; /* Adjusted line height */
+    width: 40px; /* Set a fixed width for smaller circle */
+}
+
+.date:hover .month-date,
+.date:hover .underline,
+.date:hover .year {
+    color: #000; /* Change color for all children when .date is hovered */
+    font-weight: bold;
+}
+
+.month-date {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 15px; /* Adjusted line height */
+}
+
+.underline {
+    width: 40px;
+    height: 1px;
+    background-color: #000;
+    margin: 5px 0;
+}
+
+.year {
+    font-style: italic;
+    font-size: 12px;
+    color: #bbae9d;
+    text-align: center;
+}
+
+.title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: black;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Content preview */
+.content-preview {
+    --tw-text-opacity: 1;
+    margin-left: 60px; /* Align the read more link with the title */
+    margin-top: -70px;
+    color: rgba(100, 116, 139, var(--tw-text-opacity));
+    line-height: 1.75rem;
+    font-size: 1rem;
+}
+
+.content-preview .intro {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Show only the first 3 lines */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin-bottom: 1.5rem; /* Margin bottom for paragraphs */
+}
+
+/* Read more and read less */
+.read-more, .read-less {
+    color: #000;
+    cursor: pointer;
+    display: inline-block; /* Ensure it's treated as a block for consistent spacing */
+    margin-left: 20px; /* Adjust spacing from content */
+    font-weight: bold;
+    font-size: 13px;
+    font-style: oblique;
+}
+
+.dots {
+    display: inline;
+}
+
+.more {
+    display: none;
+}
+
+.content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out; /* Smooth transition for both opacity and height */
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+.content.show {
+    opacity: 1; /* Show content with fade in */
+    max-height: 500px; /* Adjust height as needed */
+    overflow: visible;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    .header-text {
+        order: -1;
+    }
+    
+    .content-preview .intro {
+        -webkit-line-clamp: 6; /* Show only the first 2 lines on smaller screens */
+    }
+}
+
+/* Specific styles for the ordered list inside content */
+.article .content-preview .content ol {
+    margin-left: 20px; /* Adjust the left margin as needed */
+    padding-left: 0; /* Remove default padding */
+    padding-top: 10px;
+}
+
+.article .content-preview .content ol li {
+    margin-bottom: 10px; /* Space between list items */
+    color: rgba(100, 116, 139, 1); /* Ensure text color matches the content */
+    line-height: 1.75rem; /* Ensure line-height matches the content */
+    font-size: 1rem; /* Ensure font-size matches the content */
+    margin-left: 40px;
+}
+
+/* Ensure ul and li elements inside .content-preview are styled correctly */
+.content-preview ul, .content-preview li {
+    --tw-text-opacity: 1;
+    color: rgba(100, 116, 139, var(--tw-text-opacity));
+    line-height: 1.75rem;
+    font-size: 1rem;
+}
+
+/* Share on Twitter */
+.share-twitter {
+    bottom: 0;
+    left: 0;
+    margin-top: -15px; /* Adjust as needed */
+    margin-left: 12px;
+}
+
+.share-twitter i {
+    margin-right: 5px; /* Space between icon and text */
+    cursor: pointer;
+}
+
+/* Initially show Twitter share */
+.intro .share-twitter,
+.content .share-twitter {
+    display: block;
+}
+
+/* Hide Twitter share by default */
+.intro .share-twitter,
+.content .share-twitter {
+    display: none;
+}
+
+/* Hover effect for read more/less */
+.intro:hover .share-twitter,
+.content:hover .share-twitter {
+    display: block; /* Show Twitter share on hover */
+}
+
+/* Copy link to the article */
+.copy-link {
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 0; /* Position at the top */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #bbae9d;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+    z-index: 2000;
+    margin-top: 20px;
+}
+
+/* Show the notification */
+.notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Styling for the read time */
+#article-read {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 11px;
+    color: #64748b; /* Adjusted to a gray tone */
+    margin-left: 20px; /* Space between title and read time */
+    padding-top: 10px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #bbae9d;
+    color: #000;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    margin-left: 8px;
+    font-weight: bold;
+    position: absolute; /* Position the tooltip text - see examples below! */
+    z-index: 1;
+    font-size: 12px;
+}
+  
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Image style. */
+.article-image {
+    border-radius: 15px;
+    border: 1px solid #aaa;
+    align-items: center;
+    display: flex;
+    margin: 20px;
+}
