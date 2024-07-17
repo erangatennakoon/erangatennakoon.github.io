@@ -39,7 +39,7 @@ html {
   top: 0;
 }
 .timeline figcaption {
-  font: 300 120% 'Lato';
+  font: 300 100% 'Lato';
   /*text-transform: uppercase;*/
   -webkit-text-stroke: 0.25px;
 }
@@ -54,7 +54,7 @@ html {
 }
 .timeline p,
 .timeline ol {
-  font: 400 95% 'Raleway';
+  font: 400 90% 'Raleway';
   padding: 3px 0 20px 0;
   color: #575757;
   text-align: justify;
